@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>命运究竟想让你成为什么样的人 | 深度人格测评</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#1a1a1a',
+                        deepInk: '#0f0f0f',
+                        gold: '#c8a96a',
+                        lightGold: '#e0c98f',
+                        paper: '#f5f1e8',
+                        warmGray: '#8a8175',
+                        line: '#d9cfbf',
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', 'serif'],
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slow-zoom': 'slowZoom 20s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slowZoom: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: #f5f1e8;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(200, 169, 106, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(26, 26, 26, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .paper-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-blend-mode: overlay;
+            opacity: 0.03;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #c8a96a 0%, #e0c98f 50%, #c8a96a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-glow {
+            box-shadow: 0 20px 60px -15px rgba(200, 169, 106, 0.15), 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+        }
+        .option-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option-card:hover {
+            transform: translateY(-2px);
+            border-color: #c8a96a;
+            background: rgba(200, 169, 106, 0.08);
+        }
+        .radar-chart {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto;
+        }
+        .radar-polygon {
+            transition: all 1s ease-out 0.3s;
+        }
+        .progress-fill {
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-6 { animation-delay: 0.6s; opacity: 0; }
+    </style>
+</head>
+<body class="text-ink font-sans min-h-screen relative">
+    <div class="paper-texture"></div>
+
+    <!-- 首页 -->
+    <section id="hero" class="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative z-10">
+        <div class="max-w-xl w-full text-center animate-fade-in">
+            <div class="mb-8">
+                <div class="inline-block border border-gold/40 px-4 py-1.5 rounded-full">
+                    <span class="text-gold text-xs tracking-[0.3em] uppercase">Destiny Profile Test</span>
+                </div>
+            </div>
+            
+            <h1 class="font-serif text-[clamp(2.2rem,6vw,3.5rem)] font-bold leading-[1.2] mb-6">
+                命运究竟想让你<br>
+                <span class="gold-gradient">成为什么样的人</span>
+            </h1>
+            
+            <div class="w-16 h-px bg-gold/40 mx-auto mb-8"></div>
+            
+            <p class="text-ink/70 leading-loose mb-10 text-base md:text-lg font-light">
+                你有没有过这种时刻？<br>
+                明明很努力，却总觉得走在不属于自己的路上；<br>
+                明明有很多想法，却不知道哪条才是你的归途。<br><br>
+                其实你每一次下意识的选择、每一个本能的偏好，<br>
+                都藏着命运早已写好的天赋与使命。
+            </p>
+            
+            <button onclick="startQuiz()" class="group relative bg-ink text-paper px-12 py-4 rounded-full text-base tracking-wider hover:bg-gold transition-all duration-500 card-glow overflow-hidden">
+                <span class="relative z-10">开启你的命运答卷 · 共15题</span>
+                <div class="absolute inset-0 bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            </button>
+            
+            <p class="text-ink/40 text-sm mt-8 font-light">
+                基于大五人格模型 × 行为情境取样 × 历史人物原型
+            </p>
+        </div>
+    </section>
+
+    <!-- 答题页 -->
+    <section id="quiz" class="min-h-screen hidden px-6 py-16 relative z-10">
+        <div class="max-w-xl mx-auto">
+            <!-- 进度条 -->
+            <div class="mb-12 animate-fade-in">
+                <div class="flex justify-between text-xs text-warmGray mb-3 tracking-wider">
+                    <span>第 <span id="currentNum" class="text-gold font-medium">1</span> 题</span>
+                    <span>共 15 题</span>
+                </div>
+                <div class="w-full h-[2px] bg-line rounded-full overflow-hidden">
+                    <div id="progressBar" class="progress-fill h-full bg-gold w-[6%]"></div>
+                </div>
+            </div>
+
+            <!-- 题目 -->
+            <div id="questionWrap" class="animate-slide-up">
+                <h2 id="questionTitle" class="font-serif text-xl md:text-2xl font-semibold mb-10 leading-relaxed text-ink"></h2>
+                <div id="optionsContainer" class="space-y-4">
+                    <!-- 选项动态生成 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 结果页 -->
+    <section id="result" class="min-h-screen hidden px-6 py-16 relative z-10">
+        <div class="max-w-2xl mx-auto">
+            <!-- 顶部人设卡 -->
+            <div class="text-center mb-12 stagger-1 animate-slide-up">
+                <div class="inline-flex items-center gap-2 border border-gold/40 px-4 py-1.5 rounded-full mb-6">
+                    <span class="text-gold text-xs tracking-widest">你的命运原型</span>
+                    <span id="rarityTag" class="text-xs text-gold/80">稀有款 · 仅12%</span>
+                </div>
+                <h2 id="resultTitle" class="font-serif text-[clamp(2rem,5vw,3rem)] font-bold mb-4 gold-gradient"></h2>
+                <p id="resultSlogan" class="text-ink/70 text-lg italic font-light"></p>
+            </div>
+
+            <!-- 天赋雷达图 -->
+            <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-8 card-glow mb-8 stagger-2 animate-slide-up border border-white/60">
+                <h3 class="font-serif text-lg font-semibold mb-6 text-center text-ink">天赋禀赋雷达</h3>
+                <div class="radar-chart">
+                    <svg viewBox="0 0 200 200" class="w-full h-full">
+                        <!-- 背景五边形 -->
+                        <polygon points="100,20 176,75 150,170 50,170 24,75" fill="none" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <polygon points="100,45 157,86 140,155 60,155 43,86" fill="none" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <polygon points="100,70 138,97 130,140 70,140 62,97" fill="none" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <polygon points="100,95 119,108 115,125 85,125 81,108" fill="none" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <!-- 轴线 -->
+                        <line x1="100" y1="20" x2="100" y2="180" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <line x1="24" y1="75" x2="176" y2="125" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <line x1="176" y1="75" x2="24" y2="125" stroke="#d9cfbf" stroke-width="1" opacity="0.5"/>
+                        <!-- 数据多边形 -->
+                        <polygon id="radarPolygon" class="radar-polygon" points="100,100 100,100 100,100 100,100 100,100" fill="rgba(200, 169, 106, 0.25)" stroke="#c8a96a" stroke-width="2"/>
+                        <!-- 维度标签 -->
+                        <text x="100" y="12" text-anchor="middle" class="text-[10px] fill-warmGray">认知禀赋</text>
+                        <text x="185" y="78" text-anchor="start" class="text-[10px] fill-warmGray">能量禀赋</text>
+                        <text x="165" y="180" text-anchor="middle" class="text-[10px] fill-warmGray">行事禀赋</text>
+                        <text x="35" y="180" text-anchor="middle" class="text-[10px] fill-warmGray">共情禀赋</text>
+                        <text x="15" y="78" text-anchor="end" class="text-[10px] fill-warmGray">韧性禀赋</text>
+                    </svg>
+                </div>
+                <div class="grid grid-cols-5 gap-1 mt-4 text-center text-xs text-warmGray">
+                    <span>认知</span>
+                    <span>能量</span>
+                    <span>行事</span>
+                    <span>共情</span>
+                    <span>韧性</span>
+                </div>
+            </div>
+
+            <!-- 核心解读 -->
+            <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-7 md:p-8 card-glow mb-6 stagger-3 animate-slide-up border border-white/60">
+                <h3 class="font-serif text-lg font-semibold mb-4 gold-gradient inline-block">核心命运解读</h3>
+                <p id="resultDesc" class="leading-loose text-ink/80 font-light text-base"></p>
+            </div>
+
+            <!-- 馈赠与功课 两列 -->
+            <div class="grid md:grid-cols-2 gap-6 mb-6 stagger-4 animate-slide-up">
+                <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-6 card-glow border border-white/60">
+                    <h3 class="font-serif text-base font-semibold mb-4 text-gold">▸ 命运的馈赠</h3>
+                    <ul id="resultGift" class="space-y-2 text-sm text-ink/80 font-light leading-relaxed"></ul>
+                </div>
+                <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-6 card-glow border border-white/60">
+                    <h3 class="font-serif text-base font-semibold mb-4 text-ink/70">▸ 此生的功课</h3>
+                    <ul id="resultLesson" class="space-y-2 text-sm text-ink/70 font-light leading-relaxed"></ul>
+                </div>
+            </div>
+
+            <!-- 使命赛道 -->
+            <div class="bg-white/50 backdrop-blur-sm rounded-2xl p-7 md:p-8 card-glow mb-6 stagger-5 animate-slide-up border border-white/60">
+                <h3 class="font-serif text-lg font-semibold mb-4 gold-gradient inline-block">人生使命与适配赛道</h3>
+                <p id="resultMission" class="leading-loose text-ink/80 font-light text-base mb-4"></p>
+                <div id="resultTags" class="flex flex-wrap gap-2">
+                    <!-- 标签动态生成 -->
+                </div>
+            </div>
+
+            <!-- 历史同频人物 -->
+            <div class="bg-ink/90 text-paper rounded-2xl p-7 md:p-8 card-glow mb-6 stagger-5 animate-slide-up">
+                <h3 class="font-serif text-lg font-semibold mb-4 text-lightGold">历史同频人物</h3>
+                <p id="resultHistory" class="leading-loose text-paper/70 font-light text-sm"></p>
+            </div>
+
+            <!-- 行动指南 -->
+            <div class="bg-gold/10 rounded-2xl p-7 md:p-8 border border-gold/20 mb-10 stagger-6 animate-slide-up">
+                <h3 class="font-serif text-lg font-semibold mb-4 text-gold">专属行动指南</h3>
+                <ul id="resultAction" class="space-y-3 text-sm text-ink/80 font-light leading-relaxed list-decimal pl-5"></ul>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 stagger-6 animate-slide-up">
+                <button onclick="showPoster()" class="bg-gold text-white px-8 py-3.5 rounded-full hover:opacity-90 transition-all card-glow tracking-wider text-sm">
+                    生成分享海报
+                </button>
+                <button onclick="copyShare()" class="border border-ink text-ink px-8 py-3.5 rounded-full hover:bg-ink hover:text-paper transition-all tracking-wider text-sm">
+                    复制分享文案
+                </button>
+                <button onclick="restartQuiz()" class="border border-ink/30 text-ink/70 px-8 py-3.5 rounded-full hover:border-ink hover:text-ink transition-all tracking-wider text-sm">
+                    再测一次
+                </button>
+            </div>
+
+            <p class="text-center text-ink/30 text-xs font-light">
+                本测评基于大五人格模型（OCEAN）与行为情境取样法设计<br>
+                仅供自我探索参考，不作为专业心理诊断依据
+            </p>
+        </div>
+    </section>
+
+    <!-- 海报弹窗 -->
+    <div id="posterModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-6">
+        <div class="relative max-w-sm w-full">
+            <button onclick="hidePoster()" class="absolute -top-12 right-0 text-white/80 hover:text-white text-sm">关闭 ✕</button>
+            <div id="posterCard" class="bg-paper rounded-2xl overflow-hidden card-glow p-8 text-center relative">
+                <div class="paper-texture absolute inset-0 opacity-10"></div>
+                <div class="relative z-10">
+                    <p class="text-gold text-xs tracking-[0.3em] mb-4">DESTINY PROFILE</p>
+                    <h3 id="posterTitle" class="font-serif text-3xl font-bold gold-gradient mb-3"></h3>
+                    <p id="posterSlogan" class="text-ink/60 text-sm italic mb-6"></p>
+                    
+                    <div class="w-12 h-px bg-gold/40 mx-auto mb-6"></div>
+                    
+                    <div class="grid grid-cols-5 gap-1 mb-6 text-center">
+                        <div class="text-[10px] text-warmGray">
+                            <div id="posterCognition" class="text-gold font-medium text-base mb-1">0</div>
+                            认知
+                        </div>
+                        <div class="text-[10px] text-warmGray">
+                            <div id="posterEnergy" class="text-gold font-medium text-base mb-1">0</div>
+                            能量
+                        </div>
+                        <div class="text-[10px] text-warmGray">
+                            <div id="posterConscientiousness" class="text-gold font-medium text-base mb-1">0</div>
+                            行事
+                        </div>
+                        <div class="text-[10px] text-warmGray">
+                            <div id="posterAgreeableness" class="text-gold font-medium text-base mb-1">0</div>
+                            共情
+                        </div>
+                        <div class="text-[10px] text-warmGray">
+                            <div id="posterNeuroticism" class="text-gold font-medium text-base mb-1">0</div>
+                            韧性
+                        </div>
+                    </div>
+                    
+                    <p class="text-ink/50 text-xs mb-6">长按保存图片，分享给朋友</p>
+                    <p class="text-ink/30 text-[10px]">命运究竟想让你成为什么样的人</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== 题目数据（15题，五维度精准计分）====================
+        const questions = [
+            {
+                title: "团队接手一个完全陌生的新项目，你的第一反应更贴近？",
+                options: [
+                    { text: "先搭建完整框架与里程碑，按步骤稳步推进", score: { conscientiousness: 3, cognition: 1 } },
+                    { text: "先动手试错，在实践中快速迭代方向", score: { energy: 2, conscientiousness: -1 } },
+                    { text: "先调研成熟案例与方法论，再结合实际落地", score: { conscientiousness: 2, cognition: -1 } },
+                    { text: "先找一个创新切入点，用差异化思路破局", score: { cognition: 3, energy: 1 } }
+                ]
+            },
+            {
+                title: "一场高密度的社交聚会结束后，你通常的状态是？",
+                options: [
+                    { text: "心情亢奋，甚至还想再约下一场", score: { energy: 3, agreeableness: 1 } },
+                    { text: "有点累，需要独处半天才能恢复精力", score: { energy: -2, neuroticism: 1 } },
+                    { text: "有收获但也消耗，取决于当天的状态", score: { energy: 0, agreeableness: 1 } },
+                    { text: "全程习惯倾听，很少主动主导话题", score: { energy: -2, cognition: 1 } }
+                ]
+            },
+            {
+                title: "若身处春秋战国的乱世，你最想走的人生路径是？",
+                options: [
+                    { text: "开宗立派，用思想影响后世千年", score: { cognition: 3, energy: 1 } },
+                    { text: "辅佐明君，用谋略平定天下秩序", score: { cognition: 2, conscientiousness: 2 } },
+                    { text: "隐居市井，钻研一门技艺传承后世", score: { conscientiousness: 2, energy: -2 } },
+                    { text: "游走列国，联结各方资源成就实事", score: { energy: 3, agreeableness: 1 } }
+                ]
+            },
+            {
+                title: "面对别人直白的批评与不同意见，你的第一反应是？",
+                options: [
+                    { text: "先反思自己是否真的存在问题", score: { agreeableness: 2, neuroticism: 1 } },
+                    { text: "先判断对方的逻辑是否站得住脚", score: { cognition: 2, neuroticism: -1 } },
+                    { text: "心里会不舒服，但表面不会表露", score: { neuroticism: 2, agreeableness: 1 } },
+                    { text: "当场提出反驳，捍卫自己的观点", score: { energy: 2, agreeableness: -1 } }
+                ]
+            },
+            {
+                title: "做一件事的时候，你最核心的驱动力是？",
+                options: [
+                    { text: "做到极致，成为领域内不可替代的人", score: { conscientiousness: 3, cognition: 1 } },
+                    { text: "影响更多人，创造广泛的社会价值", score: { energy: 2, agreeableness: 2 } },
+                    { text: "获得实际回报，让自己和家人过得更好", score: { conscientiousness: 2, energy: 1 } },
+                    { text: "享受过程本身，体验不同的人生感受", score: { cognition: 1, neuroticism: -2 } }
+                ]
+            },
+            {
+                title: "如果可以复刻一位古人的人生状态，你更向往？",
+                options: [
+                    { text: "苏轼：一生跌宕，却始终豁达，留下传世文名", score: { cognition: 2, neuroticism: -2, energy: 1 } },
+                    { text: "张居正：身居高位，以一己之力推动时代变革", score: { conscientiousness: 3, cognition: 1 } },
+                    { text: "李时珍：深耕一隅，用一辈子做成一件利在千秋的事", score: { conscientiousness: 2, energy: -2 } },
+                    { text: "范蠡：进退自如，既能建功立业也能全身而退", score: { cognition: 2, agreeableness: 1, energy: 1 } }
+                ]
+            },
+            {
+                title: "工作中遇到棘手难题，你最习惯的解决路径是？",
+                options: [
+                    { text: "独自查资料、啃硬骨头，直到彻底搞懂", score: { cognition: 2, energy: -2 } },
+                    { text: "直接找专业人士请教，效率优先", score: { energy: 2, agreeableness: 1 } },
+                    { text: "先放一放，等灵感出现自然就通了", score: { cognition: 1, conscientiousness: -2 } },
+                    { text: "多路径并行尝试，总能找到解法", score: { conscientiousness: 2, energy: 1 } }
+                ]
+            },
+            {
+                title: "以下人生成就感的来源，你最认同哪一种？",
+                options: [
+                    { text: "留下思想与作品，被后人长久记住", score: { cognition: 3, energy: 1 } },
+                    { text: "做成一件大事，证明自身能力边界", score: { conscientiousness: 2, energy: 2 } },
+                    { text: "把一件事做到极致，成为行业标杆", score: { conscientiousness: 3, cognition: 1 } },
+                    { text: "守护好身边人，过安稳踏实的生活", score: { agreeableness: 3, conscientiousness: 1 } }
+                ]
+            },
+            {
+                title: "面对计划之外的突发变故，你的第一反应是？",
+                options: [
+                    { text: "感到焦虑，需要时间调整节奏", score: { neuroticism: 2, conscientiousness: -1 } },
+                    { text: "立刻调整方案，着手解决问题", score: { conscientiousness: 1, neuroticism: -2 } },
+                    { text: "既来之则安之，顺势而为就好", score: { agreeableness: 1, neuroticism: -1 } },
+                    { text: "觉得充满新鲜感，反而更有兴致", score: { cognition: 1, energy: 2 } }
+                ]
+            },
+            {
+                title: "在朋友的评价里，你最常被贴上的标签是？",
+                options: [
+                    { text: "靠谱，有事找你永远放心", score: { conscientiousness: 2, agreeableness: 2 } },
+                    { text: "有才，总能冒出新奇的想法", score: { cognition: 2, energy: 1 } },
+                    { text: "暖心，很会倾听和照顾人", score: { agreeableness: 3, neuroticism: 1 } },
+                    { text: "厉害，总能带着大家做成事", score: { energy: 2, conscientiousness: 2 } }
+                ]
+            },
+            {
+                title: "你更认同下面哪句人生观点？",
+                options: [
+                    { text: "选择比努力重要，认知高度决定人生边界", score: { cognition: 3, conscientiousness: -1 } },
+                    { text: "量变产生质变，长期坚持终有回报", score: { conscientiousness: 3, cognition: -1 } },
+                    { text: "人脉就是资源，多个朋友多条路", score: { energy: 2, agreeableness: 2 } },
+                    { text: "体验最重要，不必过分强求结果", score: { neuroticism: -2, cognition: 1 } }
+                ]
+            },
+            {
+                title: "周末完全没有安排的时候，你更倾向于？",
+                options: [
+                    { text: "在家看书、观影、独处，彻底放空", score: { energy: -2, cognition: 2 } },
+                    { text: "约朋友出门探店、参加活动", score: { energy: 2, agreeableness: 1 } },
+                    { text: "学习充电，完成一个小目标", score: { conscientiousness: 2, cognition: 1 } },
+                    { text: "收拾打理生活，把家里弄舒适", score: { conscientiousness: 1, agreeableness: 1 } }
+                ]
+            },
+            {
+                title: "如果必须放弃一样，你最难接受放弃？",
+                options: [
+                    { text: "思想与精神的自由", score: { cognition: 3, neuroticism: 1 } },
+                    { text: "事业与目标的成就感", score: { conscientiousness: 3, energy: 1 } },
+                    { text: "爱与陪伴的亲密关系", score: { agreeableness: 3, neuroticism: 1 } },
+                    { text: "新鲜与未知的体验感", score: { energy: 2, cognition: 2 } }
+                ]
+            },
+            {
+                title: "面对大众都在追捧的潮流热点，你的态度是？",
+                options: [
+                    { text: "保持观望，先想清楚本质再决定", score: { cognition: 2, neuroticism: -1 } },
+                    { text: "立刻跟进，抓住风口红利", score: { energy: 2, conscientiousness: 1 } },
+                    { text: "不紧不慢，适合自己才最重要", score: { agreeableness: 1, conscientiousness: 1 } },
+                    { text: "刻意回避，不想随波逐流", score: { cognition: 1, energy: -2 } }
+                ]
+            },
+            {
+                title: "回望过去的人生，你最大的遗憾往往来自？",
+                options: [
+                    { text: "想做的事没敢做，被顾虑束缚了", score: { neuroticism: 2, energy: -1 } },
+                    { text: "选错了方向，努力没有好结果", score: { cognition: -1, conscientiousness: 1 } },
+                    { text: "忽略了身边人，没能好好陪伴", score: { agreeableness: -1, neuroticism: 1 } },
+                    { text: "日子太平淡，没留下深刻的回忆", score: { energy: 1, cognition: 1 } }
+                ]
+            }
+        ];
+
+        // ==================== 8种命运人设完整文案 ====================
+        const results = {
+            preacher: {
+                title: "执炬的布道者",
+                slogan: "你生来的使命，是把光和认知带给更多人。",
+                rarity: "稀有款 · 仅12%",
+                desc: "你天生对思想、价值与意义有着超乎常人的敏感度，表达欲与共情力在你身上形成了奇妙的共振。你并非热衷于说教，只是当你看到事物的本质时，便忍不住想要分享给还在迷雾里的人。你对精神世界的追求远高于物质，这一生都在寻找「值得传递的价值」。很多时候你会觉得自己和周围格格不入，那是因为你的视野本就不在当下，而在更远的地方。",
+                gift: [
+                    "极强的本质洞察力，能快速穿透现象看到核心",
+                    "天生的表达感染力，文字与语言都能打动他人",
+                    "高共情感知力，能精准捕捉他人的情绪与需求",
+                    "价值观稳定且坚定，不容易被外界潮流裹挟"
+                ],
+                lesson: [
+                    "容易陷入「想得多、做得少」的思想内耗",
+                    "对他人期待过高，常因不被理解而感到孤独",
+                    "执行力偏弱，大想法容易停留在概念层面",
+                    "过度追求意义感，反而忽略了当下的生活"
+                ],
+                mission: "你的人生使命是「成为认知的桥梁」。你适合站在信息差的中间，把复杂的道理简单化，把深刻的思想大众化，在启发他人的过程中实现自我价值。你天生适合需要输出观点、传递价值、影响他人的领域。",
+                tags: ["知识付费", "内容创作", "人文教育", "心理咨询", "公共表达", "文化IP", "出版写作", "青年引导"],
+                history: "孔子周游列国传播仁学，以一己之思想影响后世两千余年；鲁迅以笔为刃，在蒙昧的时代唤醒国民精神。他们都拥有同一种禀赋——以思想为炬，以表达为径，在黑暗里为更多人照亮前路，这正是你命运里藏着的力量。",
+                action: [
+                    "从每周输出一篇短文开始，把你的思考落地成作品",
+                    "尝试一次公开分享，哪怕只是在小圈子里表达观点",
+                    "找到一个你认同的垂直领域，持续深耕建立话语权"
+                ]
+            },
+            strategist: {
+                title: "破局的谋断者",
+                slogan: "乱世出英雄，而你天生擅长在困局里开出新路。",
+                rarity: "稀有款 · 仅15%",
+                desc: "你有着极强的全局观与目标感，习惯深度思考后再精准行动。你不喜欢无意义的寒暄与应酬，更愿意把精力花在解决问题、推动事情上。越是混乱复杂的局面，你越能保持冷静，快速抓住关键破局点。你骨子里有着强烈的成就动机，不甘于平庸，这一生都在追求「做成一件真正的大事」。",
+                gift: [
+                    "超强的战略规划力，能看到长远的格局与趋势",
+                    "极致的逻辑决断力，关键时刻绝不拖泥带水",
+                    "强大的抗压韧性，越难的事越能激发你的斗志",
+                    "高度自律，对自己和事情都有严苛的标准"
+                ],
+                lesson: [
+                    "容易过度理性，忽略他人的情绪与感受",
+                    "控制欲偏强，不放心把事情交给别人去做",
+                    "习惯紧绷，很难真正放松享受生活",
+                    "对失败容忍度低，容易陷入自我苛责"
+                ],
+                mission: "你的人生使命是「搭建秩序，突破困局」。你适合在混乱、复杂、充满挑战的环境里发挥价值，把无序变得有序，把不可能变成可能。你天生适合战略决策、复杂项目推进、变革推动类的工作。",
+                tags: ["战略管理", "创业操盘", "项目管理", "政策研究", "风险控制", "商业咨询", "投资分析", "产品架构"],
+                history: "张居正以一介布衣跻身内阁，在明朝积弊深重之时推行万历新政，凭一己之力为王朝续命六十年；诸葛亮躬耕陇亩却洞悉天下大势，以谋略辅佐刘备成就三足鼎立。他们的共同特质，是于乱局中见秩序，于困局中寻生路，这正是你与生俱来的天赋。",
+                action: [
+                    "每周做一次全局复盘，跳出执行层看方向与策略",
+                    "主动接手一个有挑战的复杂项目，锻炼破局能力",
+                    "练习向下放权，把具体事务交给更适合的人"
+                ]
+            },
+            craftsman: {
+                title: "守拙的匠人",
+                slogan: "用一生做好一件事，就是你命运里最大的荣耀。",
+                rarity: "大众款 · 约20%",
+                desc: "你踏实、专注、有韧性，不喜欢追风口、搞噱头，更愿意在一个领域里沉下心深耕细作。你相信时间的力量，享受把一件事从粗糙打磨到极致的过程。外界的喧嚣很难动摇你的节奏，你有自己的坚守与标准。对你而言，快不是目的，好才是答案。这一生，你注定要靠深度与沉淀建立自己的壁垒。",
+                gift: [
+                    "极致的专注力，能长时间沉浸在一件事里",
+                    "超强的执行力，说到做到，落地能力极强",
+                    "长期主义韧性，愿意为一件事付出十年以上",
+                    "细节敏感度高，对品质有近乎偏执的追求"
+                ],
+                lesson: [
+                    "容易闭门造车，忽略外部环境的变化",
+                    "不擅长表达与推销，常常好酒也怕巷子深",
+                    "思维偏保守，不敢尝试新的方向与可能",
+                    "容易陷入细节，忽略全局与更重要的事"
+                ],
+                mission: "你的人生使命是「创造穿越周期的价值」。你适合在一个垂直领域里持续深耕，用时间沉淀出不可替代的专业能力，把一件事做到极致。你天生适合需要工匠精神、需要长期积累、需要深度专业的领域。",
+                tags: ["技术研发", "艺术创作", "学术研究", "手工艺", "专业技能", "匠心品牌", "医疗技术", "质量管控"],
+                history: "李时珍踏遍山川尝遍百草，历时二十七载编成《本草纲目》；曹雪芹批阅十载增删五次，半部红楼便成千古绝唱。他们不求快、不贪多，用一生的长度去打磨一件事，最终让作品跨越了时代。这份守拙的定力，正是你命运里最珍贵的禀赋。",
+                action: [
+                    "选定一个核心赛道，给自己定下三年深耕计划",
+                    "每周留出固定的「深度工作时间」，不被打扰",
+                    "适当向外展示你的成果，让专业被更多人看见"
+                ]
+            },
+            connector: {
+                title: "通达的联结者",
+                slogan: "你是天生的桥梁，让人和资源在你这里相遇成事。",
+                rarity: "大众款 · 约18%",
+                desc: "你有着极高的情商与共情力，擅长和不同类型的人打交道，总能快速拉近彼此的距离。你不喜欢死板的规则和单一的重复，享受在人际互动中创造价值。你未必是最专业的执行者，但一定是能把人和资源攒起来、把事情促成的关键角色。你的价值，藏在人与人的连接里。",
+                gift: [
+                    "敏锐的社交洞察力，能快速读懂他人的需求",
+                    "超强的资源整合能力，化零为整做成大事",
+                    "出色的情绪调和力，是团队里的润滑剂",
+                    "适应力极强，在任何环境都能快速融入"
+                ],
+                lesson: [
+                    "容易陷入无效社交，看似忙碌却没有沉淀",
+                    "习惯讨好他人，常常忽略自己的真实需求",
+                    "专业深度不足，容易沦为「万金油」",
+                    "边界感偏弱，容易被他人的事情消耗"
+                ],
+                mission: "你的人生使命是「连接价值，促成协作」。你适合在人与人、资源与资源之间扮演桥梁的角色，让分散的力量汇聚起来，共同做成更大的事。你天生适合商务、运营、公关、资源整合类的工作。",
+                tags: ["商务拓展", "用户运营", "品牌公关", "社群运营", "销售管理", "活动策划", "资源对接", "经纪人"],
+                history: "苏秦凭三寸不烂之舌游说六国，促成合纵抗秦，身佩六国相印；孟尝君门下食客三千，广结天下贤士，在乱世中进退自如。他们不靠单一技能立身，却凭借通达的处世智慧与整合能力，在历史中留下了浓墨重彩的一笔，这正是你的天赋所在。",
+                action: [
+                    "梳理你的人脉资源，按价值与方向做分类经营",
+                    "每月主动促成一次资源对接，强化你的连接价值",
+                    "深耕一两个专业领域，让连接更有分量与壁垒"
+                ]
+            },
+            pioneer: {
+                title: "拓荒的行动派",
+                slogan: "路不是想出来的，是你一步步走出来的。",
+                rarity: "大众款 · 约15%",
+                desc: "你敢想敢干，执行力极强，不喜欢纠结内耗，想到就会立刻去做。你擅长在行动中调整方向，比起纸上谈兵，更相信实战出真知。你身上充满了生命力与冲劲，越是有挑战、有风险的事，越能激发你的斗志。你不惧怕失败，因为对你而言，试过本身就有意义。",
+                gift: [
+                    "超强的执行力，想到就做，绝不拖延",
+                    "出色的冒险魄力，敢于尝试未知的领域",
+                    "极强的落地实战能力，在做中学、学中做",
+                    "抗挫力强，跌倒了能很快爬起来继续"
+                ],
+                lesson: [
+                    "容易盲目行动，缺少深度思考与规划",
+                    "耐心不足，做事容易三分钟热度",
+                    "习惯冲在一线，不懂得借力与团队协作",
+                    "复盘意识弱，容易在同一个地方反复踩坑"
+                ],
+                mission: "你的人生使命是「开拓边界，拿到结果」。你适合从0到1的开拓性工作，在没有人走过的地方踩出路来。你天生适合创业、市场开拓、一线业务、竞技类等需要冲劲与行动力的领域。",
+                tags: ["创业操盘", "市场开拓", "一线销售", "项目落地", "户外探险", "竞技体育", "电商运营", "渠道拓展"],
+                history: "刘邦出身市井却敢揭竿而起，一路披荆斩棘最终建立大汉王朝；张骞出使西域，历经十三年磨难凿空丝绸之路。他们不是想得最周全的人，却是最敢迈出第一步的人。这份敢闯敢干的拓荒精神，正是你命运里最鲜活的力量。",
+                action: [
+                    "行动前花10%的时间做方向梳理，避免盲目试错",
+                    "每完成一件事做一次简短复盘，沉淀经验",
+                    "找到擅长规划的伙伴互补，走得更快更远"
+                ]
+            },
+            thinker: {
+                title: "独行的思辨者",
+                slogan: "你不必活成人群的焦点，你的精神世界早已自成宇宙。",
+                rarity: "稀有款 · 仅8%",
+                desc: "你的内心世界极其丰富，擅长深度思考与本质洞察，对很多事都有自己独到的见解。你不喜欢热闹与应酬，独处的时候才是你精力最充沛、灵感最迸发的时刻。你对精神世界的追求远高于世俗的认可与物质的享受。很多人觉得你孤僻难懂，其实你只是把能量都留给了自己的精神天地。",
+                gift: [
+                    "极致的深度洞察力，能看到事物最底层的逻辑",
+                    "独立思考能力，绝不盲从大众与权威",
+                    "强大的精神创造力，思想与灵感源源不断",
+                    "高度自洽，一个人也能活得丰盈而充实"
+                ],
+                lesson: [
+                    "容易过度内倾，与现实世界产生脱节感",
+                    "社交能力偏弱，不擅长争取资源与机会",
+                    "容易陷入虚无主义，觉得很多事没有意义",
+                    "行动力不足，想法很多落地很少"
+                ],
+                mission: "你的人生使命是「探索真理，创造精神产物」。你适合在安静的环境里深度创作与研究，用思想与作品和世界对话。你天生适合哲学研究、文学艺术创作、理论研究、独立顾问类的工作。",
+                tags: ["哲学研究", "文学创作", "艺术创作", "理论物理", "产品设计", "独立顾问", "编剧策划", "历史研究"],
+                history: "庄子曳尾于涂中，以汪洋恣肆的思想逍遥于天地之间；康德一生未走出哥尼斯堡，却用哲学思考撼动了整个世界。他们不追逐世俗的功名，只在自己的精神世界里深耕，最终让思想穿越了时空。这份独行的思辨力，正是你最珍贵的天赋。",
+                action: [
+                    "把你的思考系统地输出成作品，让思想被看见",
+                    "每周安排固定的社交时间，保持与现实的连接",
+                    "找到一个小而精的同好圈子，获得精神共鸣"
+                ]
+            },
+            guardian: {
+                title: "安隅的守护者",
+                slogan: "守护好一方天地与身边的人，就是你最了不起的使命。",
+                rarity: "大众款 · 约12%",
+                desc: "你稳重、可靠、有责任心，做事踏实让人放心，同时非常在意身边人的感受。你不追求大起大落的人生，更看重安稳、温暖、长久的关系与生活。你是身边人的底气与港湾，总能在细节里给人安全感。对你而言，轰轰烈烈不如细水长流，守护好自己的一方天地，就是最大的幸福。",
+                gift: [
+                    "极强的责任担当力，交代的事永远靠谱",
+                    "细腻的共情照顾力，总能察觉他人的需求",
+                    "稳定的续航能力，细水长流从不掉链子",
+                    "包容度高，能接纳不同的人与事"
+                ],
+                lesson: [
+                    "容易把别人的需求放在自己前面，过度付出",
+                    "安全感偏低，不敢尝试变化与新的可能",
+                    "格局容易受限，只关注眼前的人和事",
+                    "不懂得拒绝，常常被他人消耗"
+                ],
+                mission: "你的人生使命是「守护秩序，传递温暖」。你适合在稳定的环境里，做支撑性、服务性、保障性的工作，用你的靠谱与温暖，让身边的人和事都变得更好。你天生适合公职、医护、教育、服务类等领域。",
+                tags: ["公职事业", "医护健康", "基础教育", "后勤管理", "社会工作", "家庭经营", "服务行业", "行政人事"],
+                history: "曾国藩以拙诚立身，一辈子兢兢业业，成为晚清王朝的支柱与守护者；南丁格尔以慈悲之心投身护理事业，用温柔与专业守护了无数生命。他们不求惊天动地的功名，只以自己的方式默默守护，成为了时代里最坚实的力量，这正是你命运里温柔而强大的禀赋。",
+                action: [
+                    "每周留出专属自己的时间，优先照顾好自己",
+                    "学会温和地拒绝，建立清晰的人际边界",
+                    "偶尔尝试一点新鲜事物，拓宽人生的边界"
+                ]
+            },
+            harmonizer: {
+                title: "顺势的调和者",
+                slogan: "你没有固定的人设，因为你能活成任何你想成为的样子。",
+                rarity: "稀有款 · 仅10%",
+                desc: "你是可塑性极强的多面手，既能深度思考，也能落地执行；既能融入人群，也能享受独处。你的适应力极强，在不同的环境里都能快速调整自己，找到最适合的位置。你的人生没有标准答案，全凭你自己定义。很多人觉得你没有特点，其实灵活与均衡，就是你最大的特点。",
+                gift: [
+                    "超强的环境适应力，到哪里都能快速立足",
+                    "均衡的综合能力，没有明显的短板",
+                    "极高的灵活度，能根据情况随时调整策略",
+                    "包容度强，能和不同类型的人协作共事"
+                ],
+                lesson: [
+                    "容易陷入「样样通、样样松」的困境",
+                    "自我认知模糊，常常不知道自己真正想要什么",
+                    "容易随波逐流，缺少坚定的立场与方向",
+                    "长板不突出，竞争力容易被稀释"
+                ],
+                mission: "你的人生使命是「跨界融合，动态平衡」。你适合跨界、综合、协调类的工作，在不同领域之间游走，把不同的东西融合出新的价值。你不必急于给自己下定义，多尝试、多体验，最终你会活成独一无二的自己。",
+                tags: ["综合管理", "跨界创业", "自由职业", "产品运营", "项目协调", "多元艺术", "投资布局", "生活方式"],
+                history: "苏轼既能入朝为官治理一方，也能归隐田园著书立说，入世出世皆从容；王阳明既能著书立说开创心学，也能带兵打仗平定叛乱，文武双全知行合一。他们都不是单一维度的人，而是顺势而为，在不同的人生阶段活出了不同的精彩，这正是你命运里的无限可能。",
+                action: [
+                    "主动尝试2-3个不同领域，找到你的真正热爱",
+                    "选定一两个方向重点深耕，建立核心长板",
+                    "利用你的均衡优势，做跨界整合类的事"
+                ]
+            }
+        };
+
+        // ==================== 全局状态 ====================
+        let currentIndex = 0;
+        let scores = {
+            cognition: 0,
+            energy: 0,
+            conscientiousness: 0,
+            agreeableness: 0,
+            neuroticism: 0
+        };
+        let currentResultKey = null;
+
+        // ==================== 答题逻辑 ====================
+        function startQuiz() {
+            document.getElementById('hero').classList.add('hidden');
+            document.getElementById('quiz').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentIndex];
+            document.getElementById('currentNum').textContent = currentIndex + 1;
+            const progress = Math.round(((currentIndex + 1) / questions.length) * 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('questionTitle').textContent = q.title;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+            
+            // 重新触发动画
+            const wrap = document.getElementById('questionWrap');
+            wrap.classList.remove('animate-slide-up');
+            void wrap.offsetWidth; // 触发重绘
+            wrap.classList.add('animate-slide-up');
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-card w-full text-left p-5 rounded-xl bg-white/60 border border-line hover:border-gold transition-all duration-300 leading-relaxed text-ink/80 font-light text-sm md:text-base';
+                btn.textContent = opt.text;
+                btn.onclick = () => selectOption(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(idx) {
+            const opt = questions[currentIndex].options[idx];
+            for (let key in opt.score) {
+                scores[key] += opt.score[key];
+            }
+
+            currentIndex++;
+            if (currentIndex < questions.length) {
+                setTimeout(renderQuestion, 200);
+            } else {
+                setTimeout(showResult, 300);
+            }
+        }
+
+        // ==================== 结果计算与渲染 ====================
+        function showResult() {
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            // 三维度高低判定
+            const highCognition = scores.cognition > 2;
+            const highEnergy = scores.energy > 2;
+            const highConscientiousness = scores.conscientiousness > 2;
+
+            // 匹配人设
+            if (highCognition && highEnergy && !highConscientiousness) {
+                currentResultKey = 'preacher';
+            } else if (highCognition && !highEnergy && highConscientiousness) {
+                currentResultKey = 'strategist';
+            } else if (!highCognition && !highEnergy && highConscientiousness) {
+                currentResultKey = 'craftsman';
+            } else if (!highCognition && highEnergy && !highConscientiousness) {
+                currentResultKey = 'connector';
+            } else if (!highCognition && highEnergy && highConscientiousness) {
+                currentResultKey = 'pioneer';
+            } else if (highCognition && !highEnergy && !highConscientiousness) {
+                currentResultKey = 'thinker';
+            } else if (!highCognition && !highEnergy && !highConscientiousness) {
+                currentResultKey = 'guardian';
+            } else {
+                currentResultKey = 'harmonizer';
+            }
+
+            const res = results[currentResultKey];
+
+            // 填充基础文案
+            document.getElementById('resultTitle').textContent = res.title;
+            document.getElementById('resultSlogan').textContent = res.slogan;
+            document.getElementById('rarityTag').textContent = res.rarity;
+            document.getElementById('resultDesc').textContent = res.desc;
+            document.getElementById('resultMission').textContent = res.mission;
+            document.getElementById('resultHistory').textContent = res.history;
+
+            // 填充馈赠列表
+            const giftUl = document.getElementById('resultGift');
+            giftUl.innerHTML = '';
+            res.gift.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `• ${item}`;
+                giftUl.appendChild(li);
+            });
+
+            // 填充功课列表
+            const lessonUl = document.getElementById('resultLesson');
+            lessonUl.innerHTML = '';
+            res.lesson.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `• ${item}`;
+                lessonUl.appendChild(li);
+            });
+
+            // 填充标签
+            const tagsDiv = document.getElementById('resultTags');
+            tagsDiv.innerHTML = '';
+            res.tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'px-3 py-1 rounded-full bg-gold/10 text-gold text-xs border border-gold/20';
+                span.textContent = tag;
+                tagsDiv.appendChild(span);
+            });
+
+            // 填充行动指南
+            const actionUl = document.getElementById('resultAction');
+            actionUl.innerHTML = '';
+            res.action.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                actionUl.appendChild(li);
+            });
+
+            // 渲染雷达图
+            renderRadar();
+        }
+
+        // 雷达图坐标计算
+        function renderRadar() {
+            // 将分数归一化到 0-80 的半径范围（中心100，边缘20）
+            const maxScore = 15;
+            const minRadius = 20;
+            const maxRadius = 80;
+            const centerX = 100;
+            const centerY = 100;
+
+            // 五个维度的角度（从顶部开始，顺时针）
+            const angles = [
+                -90,   // 认知禀赋 顶部
+                -18,   // 能量禀赋 右上
+                54,    // 行事禀赋 右下
+                126,   // 共情禀赋 左下
+                198    // 韧性禀赋 左上
+            ];
+
+            const dims = ['cognition', 'energy', 'conscientiousness', 'agreeableness', 'neuroticism'];
+            const points = [];
+
+            dims.forEach((dim, i) => {
+                let val = scores[dim];
+                // 归一化到 0-1
+                let ratio = (val + maxScore) / (2 * maxScore);
+                ratio = Math.max(0.1, Math.min(1, ratio));
+                const r = minRadius + (maxRadius - minRadius) * ratio;
+                const angle = angles[i] * Math.PI / 180;
+                const x = centerX + r * Math.cos(angle);
+                const y = centerY + r * Math.sin(angle);
+                points.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+            });
+
+            // 延迟设置，触发动画
+            setTimeout(() => {
+                document.getElementById('radarPolygon').setAttribute('points', points.join(' '));
+            }, 300);
+        }
+
+        // ==================== 分享与海报 ====================
+        function copyShare() {
+            const res = results[currentResultKey];
+            const text = `我测出来是【${res.title}】\n${res.slogan}\n\n据说只有少数人是这款，快来测测命运想让你成为什么样的人👇`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('分享文案已复制，快去朋友圈分享吧～');
+            }).catch(() => {
+                alert('复制失败，请手动复制页面链接分享');
+            });
+        }
+
+        function showPoster() {
+            const res = results[currentResultKey];
+            document.getElementById('posterTitle').textContent = res.title;
+            document.getElementById('posterSlogan').textContent = res.slogan;
+
+            // 海报分数显示（百分制）
+            const maxScore = 15;
+            const dims = ['cognition', 'energy', 'conscientiousness', 'agreeableness', 'neuroticism'];
+            const posterIds = ['posterCognition', 'posterEnergy', 'posterConscientiousness', 'posterAgreeableness', 'posterNeuroticism'];
+            
+            dims.forEach((dim, i) => {
+                let val = scores[dim];
+                let percent = Math.round(((val + maxScore) / (2 * maxScore)) * 100);
+                document.getElementById(posterIds[i]).textContent = percent;
+            });
+
+            document.getElementById('posterModal').classList.remove('hidden');
+        }
+
+        function hidePoster() {
+            document.getElementById('posterModal').classList.add('hidden');
+        }
+
+        // ==================== 重测 ====================
+        function restartQuiz() {
+            currentIndex = 0;
+            scores = { cognition: 0, energy: 0, conscientiousness: 0, agreeableness: 0, neuroticism: 0 };
+            currentResultKey = null;
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('hero').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
