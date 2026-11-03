@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>命运想让你成为什么样的人</title>
+<style>
+:root{--bg:#f4efe4;--fg:#27212f;--card:#fffcf4;--ac:#8a5a2b;--mu:#7b7385;--bd:#e2d8c2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0e0b17;--fg:#ece6f5;--card:#1a1528;--ac:#e3bb72;--mu:#9a90ab;--bd:#32294a}}
+:root[data-theme=dark]{--bg:#0e0b17;--fg:#ece6f5;--card:#1a1528;--ac:#e3bb72;--mu:#9a90ab;--bd:#32294a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,color-mix(in srgb,var(--ac) 18%,var(--bg)),var(--bg) 60%) fixed;color:var(--fg);font:16px/1.85 "Noto Serif SC","Songti SC",serif;display:flex;justify-content:center;min-height:100vh}
+main{width:100%;max-width:520px;padding:28px 20px 56px;animation:in .6s}@keyframes in{from{opacity:0;transform:translateY(12px)}}
+h1{font-size:30px;line-height:1.4;margin:.3em 0;letter-spacing:2px}h2{font-size:21px;line-height:1.6;margin:.4em 0 .8em}
+.mu{color:var(--mu);font-size:14px}.ch{color:var(--ac);letter-spacing:4px;font-size:13px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;margin:16px 0}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--fg);border-radius:14px;padding:14px 16px;width:100%;text-align:left;margin:9px 0;transition:.2s}
+button:hover,button:active{border-color:var(--ac);transform:translateX(4px)}button.pri{background:var(--ac);color:var(--bg);border-color:var(--ac);text-align:center;font-weight:700;letter-spacing:2px}
+.dots{display:flex;gap:6px;margin-bottom:14px}.dots i{flex:1;height:3px;background:var(--bd);border-radius:2px}.dots i.on{background:var(--ac)}
+.big{font-size:64px;text-align:center;animation:fl 3s infinite alternate}@keyframes fl{to{transform:translateY(-6px)}}
+.q{text-align:center;color:var(--ac);font-style:italic;margin:.6em 0}
+h3{font-size:14px;color:var(--ac);margin:1.5em 0 .2em;letter-spacing:2px}p{margin:.4em 0}li{margin:.3em 0}ul{padding-left:1.2em;margin:.3em 0}
+.bar{height:6px;background:var(--bd);border-radius:3px;margin:2px 0 10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}
+img{width:100%;border-radius:14px;margin-top:10px}
+.hero{text-align:center;padding:30px 20px 24px;border-radius:22px;border:1px solid var(--bd);background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--ac) 28%,var(--card)),var(--card) 70%);margin:12px 0}
+.orb{width:112px;height:112px;margin:8px auto 10px;border-radius:50%;display:grid;place-items:center;font-size:56px;background:radial-gradient(circle,color-mix(in srgb,var(--ac) 35%,transparent),transparent 70%);box-shadow:0 0 44px color-mix(in srgb,var(--ac) 40%,transparent);animation:fl 3s infinite alternate}
+.nm{font-size:34px;font-weight:700;letter-spacing:4px;background:linear-gradient(90deg,var(--ac),var(--fg),var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent;margin:.1em 0}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}.chips span{border:1px solid var(--ac);color:var(--ac);border-radius:99px;padding:2px 12px;font-size:13px}
+.sec{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--ac);border-radius:14px;padding:16px 18px;margin:12px 0}.sec h3{margin:0 0 6px}.sec p,.sec ul{margin:0}
+.sc{font-size:12px;color:var(--mu);letter-spacing:3px;text-align:center;margin:28px 0 4px}
+</style></head><body><main id="app"></main>
+<script>
+const M={A:'稳住局面的定力',B:'破旧立新的冲动',C:'体察他人的柔软',D:'看穿表象的冷静',E:'点燃人心的热度',F:'屡败屡战的韧劲'};
+const T={
+A:{n:'秩序的守夜人',e:'🏮',q:'世界不缺英雄，缺在英雄倒下后仍把灯点着的人。',j:'你有一种稀有的品质：被托付，就不辜负。命运不爱把舞台全给最响的人，常留给最稳的那个。你的安全感来自“事情在掌控中”，而你本身，就是别人的掌控感。',sg:['人群慌乱时，你会不自觉先动手','你讨厌“差不多就行”','被需要让你安心，也让你疲惫'],s:'尽责性对健康、事业与寿命的预测力，是大五人格中最稳定的一项（Roberts 等，2007）。你的可靠，是长期复利。',h:'萧何：楚汉相争时留守关中，抚百姓、给粮饷，刘邦评他为功臣之首。战场上的名字被记住，但没有他，就没有战场。',d:'你容易把“被需要”误认成“被爱”，扛下一切，却很少问自己累不累。',a:'今年做一件不完美、只属于你的事，不为任何人交付。',pk:'开路人——他给方向，你让方向落地。'},
+B:{n:'破局的开路人',e:'🧭',q:'别人看见围墙，你看见墙上松动的那几块砖。',j:'你对既定路线有种天生的不耐烦。时代每转一次弯，都需要有人先踩出第一脚，命运把这个位置留给了你。你的“坐不住”，不是浮躁，是对“本可以更好”的敏感。',sg:['你常想“为什么非得这样”','新鲜感消退时，你会突然失去动力','你容易被不被理解的孤独追上'],s:'创造者群体在开放性与对不确定性的耐受度上显著更高（Feist，1998）。',h:'商鞅：入秦变法，徙木立信、废井田、奖军功，让边陲之国重塑筋骨，也终究付出代价。开路者常走得比时代远。',d:'你容易开局惊艳、收尾疲软，也容易太早看到答案而显得孤独。',a:'给灵感找一个“守夜人”搭档，让点子落地，而不是消散。',pk:'守夜人——你负责想到，他负责做到。'},
+C:{n:'人间的摆渡人',e:'🌉',q:'你不是光，你是让别人看见光的那座桥。',j:'你有一种难以量化的能力：别人在你面前会慢慢放下防备。命运给你的不是聚光灯，而是一条河和一只船。你渡的每个人，都在悄悄改变世界的温度。',sg:['别人总在你面前说出没对别人说过的话','你会为陌生人的难过而难过','你常忘了先照顾自己'],s:'良好的社会关系可使生存概率提高约 50%，影响堪比戒烟（Holt-Lunstad 等，2010）。你给出的温度，是实打实的健康资产。',h:'范仲淹：设范氏义庄赡养族人，延续数百年。“先天下之忧而忧”不是口号，是一生的行事方式。',d:'你容易把别人的情绪背成自己的，慷慨到忘了留给自己一份。',a:'练习说“不”。边界不是冷漠，是让渡船不沉的吃水线。',pk:'记录者——他为你的付出找到意义，也提醒你回望自己。'},
+D:{n:'沉静的记录者',e:'📜',q:'你在等一个更接近真相的版本，所以不急着开口。',j:'你的内心有一间别人不常进入的书房。你不急着表态，因为你要的不是“对”，而是“真”。命运派你来，是为了在喧闹过后，有人还记得发生了什么、意味着什么。',sg:['你对“为什么”比对“怎么办”更着迷','社交后你需要很久独处恢复','你总在复盘一句早已过去的话'],s:'心智游移与内省，与创造性问题解决及意义建构相关（Baird 等，2012）。你的发呆，是大脑在后台整合世界。',h:'司马迁：身受宫刑，仍发愤著《史记》，志在“究天人之际，通古今之变”。最深的痛，成了最长的光。',d:'你容易想得太多、做得太少，把“还没准备好”当成永恒的理由。',a:'把想法写下来、发出去，哪怕只给一个人看。思想被看见，才会成为力量。',pk:'点火者——他把你的洞见变成别人听得懂的话。'},
+E:{n:'燎原的点火者',e:'🔥',q:'你的一句话，足以让一群沉默的人开始行走。',j:'你有一种感染力：话没说完，别人的眼睛已经亮了。命运把一团火放在你手里，不是让你自己取暖，而是去点燃那些不知道自己能燃烧的人。',sg:['你在场时气氛会变','你的热情会让别人愿意冒险','独处时你反而容易空落'],s:'情绪会在人群中自动传染（Hatfield 等，1993）。你的状态，会成为一个群体的“天气”。',h:'陈胜：一句“王侯将相宁有种乎”，让一群戍卒成为撼动王朝的力量。点火者的武器，往往只是一句话。',d:'你容易依赖被回应的热度。火需要柴，你也需要补给。',a:'火越大越要有方向。先想清楚“点燃之后去哪”，再开口。',pk:'记录者——他让你的火有深度，不只是热度。'},
+F:{n:'不灭的长跑者',e:'⛰️',q:'你不一定起点最亮，但你是终点还在的那个。',j:'命运考验你的方式，往往是一次次重来，而你每一次的回应，都比上一次更沉默、更坚定。你的力量不张扬，却是所有人最后想靠近的那种。',sg:['越是被质疑，你越不肯认输','你很少说苦，却记得每一次','你习惯一个人把事扛完'],s:'长期毅力与热情比天赋更能预测成就（Duckworth 等，2007）；相信能力可成长的人，挫折后恢复更快（Dweck）。',h:'曾国藩：靖港兵败，一度投水自尽，被救起后重整旗鼓，以“结硬寨，打呆仗”的笨办法逐步逆转。',d:'你太习惯硬扛，把求助看成软弱，直到身体先替你喊停。',a:'把“扛住”升级成“扛得聪明”：休息，也是战略的一部分。',pk:'摆渡人——他让你知道，被接住不是软弱。'},
+Z:{n:'万象的多面者',e:'🌌',q:'命运没有给你一个答案，它给了你一整片星空。',j:'你的六种倾向几乎势均力敌，这在人群中并不常见。你像一面多棱镜，面对不同的人与时刻，会折射出不同的自己。命运对你的期待，不是成为“一种人”，而是成为“能在需要时变成那种人”的人。',sg:['你很难被一个标签概括','你能理解很多不同立场的人','你偶尔困惑“我到底是谁”'],s:'人格会随情境与角色灵活展现，高“情境适应性”的人往往拥有更广的人际与职业选择。',h:'苏轼：一生在庙堂、贬谪、山水间辗转，既是文人、官员、美食家，也是水利工程的主持者，处处都是他。',d:'选择太多，容易迟迟不落子。',a:'选一个当下最需要的身份，认真做三个月，再换下一个。',pk:'任何人——你是最好的翻译者。'}};
+const Q=[
+['来路','七岁那年的暑假，没人管你，你最可能在做什么？',[['整理自己的小天地，每样东西都有固定位置','A'],['把闹钟拆开，装不回去也不后悔','B'],['带一群孩子玩我编的游戏，我当“队长”','E'],['蹲在角落，把一本书读到天黑','D'],['摔了很多次，也要把自行车学会','F']]],
+['来路','成长中，哪句夸奖你记到现在？',[['“这孩子真让人放心”','AF'],['“你怎么会想到这个？”','BD'],['“有你在，我就没那么难受了”','C'],['“听你说话，我就想去做点什么”','E']]],
+['来路','回望来路，哪一刻最让你骄傲？',[['咬牙撑过了所有人都以为我撑不住的阶段','FA'],['帮一个人走出了很糟的时期','C'],['做过一次与众不同的选择','BE'],['想通了一件困扰我很久的事','D']]],
+['来路','小学时老师让你选班级职务，你会主动争取哪个？',[['纪律或劳动委员，我想让班级运转得好','A'],['宣传委员，想出没人做过的点子','B'],['班长，我想带大家做点什么','E'],['图书角管理员，安静待着挺好','D'],['体育委员，不怕累','F'],['先看谁没人选，我来补位','C']]],
+['来路','小时候受了委屈，你最常见的应对是？',[['藏在心里，转头继续做该做的事','F'],['找信得过的人，慢慢讲出来','C'],['写下来或想明白原因，再放下','D'],['发一场脾气，然后立刻想新办法','BE'],['告诉自己下次做得让人挑不出错','A']]],
+['岔路','两份工作：一份稳定体面，一份冒险但有意思。你的第一反应？',[['算清风险与底线，再决定','AD'],['冒险那份，不试会后悔','BE'],['看哪份能让身边人安心','CA'],['看哪份十年后依然让我有力量','FD']]],
+['岔路','朋友深夜找你崩溃倾诉，你通常会？',[['安静听完，不急着给建议','C'],['帮他把问题拆成几个可执行的步骤','AD'],['说一段话，让他觉得自己还能再战','EC'],['告诉他我也经历过，会过去的','FC']]],
+['岔路','你最害怕哪一种未来？',[['一切失控，无人负责','A'],['一辈子活在别人设计的路线里','B'],['身边的人渐渐走远','C'],['到老也没弄明白为何而活','D'],['默默无闻，没点燃过任何人','E'],['被一次打击彻底击垮','F']]],
+['岔路','团队里有人一直拖后腿，你更接近哪种做法？',[['先私下问清是不是遇到了困难','C'],['定明确节点和责任，按规则来','A'],['重新分工，把他放到能发挥的位置','BD'],['用一次鼓舞的谈话让他重新入局','E'],['我多扛一点，把活儿做完','F']]],
+['岔路','你更愿意怎么过周末？',[['把家和计划彻底收拾一遍','A'],['去一个从没去过的地方','B'],['约几个人吃饭聊到半夜','CE'],['一个人看书、看展、写点什么','D'],['跑步爬山，把自己推到极限','F']]],
+['暗夜','凌晨三点失眠，脑子里最先冒出来的是？',[['一份没完成的清单','A'],['另一种人生的可能','B'],['某个人的脸','C'],['一个无解的大问题','D']]],
+['暗夜','人生最低谷时，你最像哪种状态？',[['闷头把日子一天天过下去','F'],['疯狂做事，让自己没空想','A'],['拼命找人，需要被接住','CE'],['反复复盘，自我审问','D'],['想彻底推倒重来','B']]],
+['暗夜','你相信“命运”吗？',[['相信，人只是顺势而为','D'],['一半一半，努力是对命运的回应','AF'],['不信，路是自己闯出来的','BE'],['信，因为遇见的人让我相信','C']]],
+['暗夜','被最信任的人误解时，你最可能？',[['先沉默，用时间和行动证明','F'],['试着解释，实在不行就放下','CD'],['想弄清究竟哪里出了错','AD'],['心里难受，但更想把关系修好','C'],['干脆换个环境，重新开始','B']]],
+['暗夜','有没有过“再不改变就晚了”的时刻？那时你做了什么？',[['列计划，一步步改','A'],['当即辞职、搬家、转行','B'],['找人倾诉，从别人身上借到勇气','CE'],['先躲起来想清楚，再出手','D'],['咬牙继续，等风向变','F']]],
+['归途','你希望别人在你的追悼会上，最常提起你的什么？',[['你从不让人失望','A'],['你走了一条别人没走过的路','B'],['有你在，他们才没那么孤单','C'],['你把某件事看得特别透','D'],['你点燃过很多人','E'],['你从来没被打倒过','F']]],
+['归途','十年后，你更想收到哪种评价？',[['“他让一切运转起来”','A'],['“她改变了这个领域”','BE'],['“有他在，大家都变好了”','C'],['“她把世界说清楚了”','D'],['“他从泥里站起来的样子，我一直记得”','F']]],
+['归途','给十八岁的自己一句话，会是？',[['别急，一件事一件事来','A'],['别听别人的，去试','B'],['别一个人扛，去找你爱的人','C'],['多读书多想，别怕孤独','D'],['你比你想的更能点燃别人','E'],['再撑一下，会好的','F']]],
+['归途','闭上眼，想象命运对你说话。你希望它说？',[['“你守住的，我都记得。”','A'],['“去吧，前面没有路，所以你来走。”','B'],['“你照亮过的每个人，都是你的星。”','C'],['“你看见的，我允许你说出来。”','D'],['“去点火吧，世界在等你。”','E'],['“你没有倒下，这就是答案。”','F']]],
+['归途','如果只能给世界留下一样东西？',[['一套运转良好的秩序','A'],['一条新的路','B'],['一群被照亮的人','C'],['一部记录与思考','D'],['一个被点燃的信念','E'],['一个熬过来的榜样','F']]]];
+const app=document.getElementById('app');let i=0,S;const $=h=>{app.innerHTML=h;scrollTo(0,0)};
+function start(){i=0;S={A:0,B:0,C:0,D:0,E:0,F:0};$(`<p class="ch">FATE · 命运测评</p><h1>命运，究竟想让你<br>成为什么样的人？</h1><p class="mu">你以为是你在选择人生，也许人生早已在悄悄选择你。</p><div class="card"><p>20 道情境题，穿过四个章节：<b>来路 · 岔路 · 暗夜 · 归途</b>。</p><p class="mu">没有标准答案，只看你的本能。结果将结合大五人格、毅力与韧性研究，对照中国历史中六类“命运人物”，给出你的判词、暗线与下一步。</p></div><button class="pri" onclick="q()">翻开命运之书</button><p class="mu">约 6 分钟 · 仅供娱乐与自我探索，非心理诊断</p>`)}
+function q(){const [c,t,o]=Q[i];$(`<div class="dots">${Q.map((_,k)=>`<i class="${k<=i?'on':''}"></i>`).join('')}</div><p class="ch">第${'一二三四'[['来路','岔路','暗夜','归途'].indexOf(c)]}章 · ${c} · ${i+1}/${Q.length}</p><h2>${t}</h2>${o.map((x,k)=>`<button onclick="pick(${k})">${x[0]}</button>`).join('')}`)}
+function pick(k){const c=Q[i][2][k][1];S[c[0]]+=2;if(c[1])S[c[1]]+=1;i++;i<Q.length?q():res()}
+function res(){const r=Object.entries(S).sort((a,b)=>b[1]-a[1]),tot=r.reduce((a,b)=>a+b[1],0);
+const z=r[0][1]-r[5][1]<=5,k=z?'Z':r[0][0],d=T[k],s=r[1][0],pct=Math.round(r[0][1]/tot*100);
+window.d=d;window.pct=pct;
+window.txt=`命运想让我成为「${d.n}」${d.e}\n${d.q}\n副线：${T[s].n}。你的命运是什么？`;
+const mix=z?'':`<p>你的底色是<b>${d.n}</b>，却又掺着一点<b>${M[s]}</b>——这让你不是教科书里的某一种，而是只属于你的那一种。</p>`;
+$(`<div class="card"><p class="ch" style="text-align:center">命运给你的判词</p><div class="big">${d.e}</div><h1 style="text-align:center;margin:.1em 0">${d.n}</h1><p class="q">“${d.q}”</p><p class="mu" style="text-align:center">${z?'隐藏结果 · 六种倾向势均力敌':'本命浓度 '+pct+'% · 副线：'+T[s].n}</p>
+<p>${d.j}</p>${mix}<h3>你可能常有这些信号</h3><ul>${d.sg.map(x=>`<li>${x}</li>`).join('')}</ul><h3>科学的注脚</h3><p>${d.s}</p><h3>历史的镜像</h3><p>${d.h}</p><h3>你的暗线</h3><p>${d.d}</p><h3>命运的下一步</h3><p>${d.a}</p><h3>命定的搭档</h3><p>${d.pk}</p></div>
+<div class="card"><h3 style="margin-top:0">你身上的六种命运倾向</h3>${r.map(x=>`<div>${T[x[0]].e} ${T[x[0]].n} <span class="mu">${Math.round(x[1]/tot*100)}%</span><div class="bar"><i style="width:${x[1]/r[0][1]*100}%"></i></div></div>`).join('')}<p class="mu">命运更像一份倾向配比，而不是一枚标签。</p></div>
+<button class="pri" onclick="po()">生成我的命运海报</button><div id="po"></div><button class="pri" onclick="cp()" id="cb">复制结果，邀朋友来对比</button><button onclick="start()" style="text-align:center">重新翻开命运之书</button><p class="mu">* 本测评为娱乐与自我探索之用，不构成心理诊断；引用研究为通识性概述。</p>`)}
+function res(){const r=Object.entries(S).sort((a,b)=>b[1]-a[1]),tot=r.reduce((a,b)=>a+b[1],0),mx=r[0][1],z=mx-r[5][1]<=9,k=z?'Z':r[0][0],d=T[k],s=r[1][0],pct=Math.round(mx/tot*100);
+window.d=d;window.pct=pct;window.txt=`命运想让我成为「${d.n}」${d.e}\n${d.q}\n副线：${T[s].n}。你的命运是什么？`;
+const K='ABCDEF'.split(''),P=(f,R)=>K.map((c,j)=>{const a=(-90+60*j)*Math.PI/180,u=R*f(c);return (110+u*Math.cos(a)).toFixed(1)+','+(110+u*Math.sin(a)).toFixed(1)}).join(' ');
+const rad=`<svg viewBox="0 0 220 220" style="width:100%;max-width:300px;display:block;margin:auto">${[.34,.67,1].map(f=>`<polygon points="${P(()=>f,78)}" style="fill:none;stroke:var(--bd)"/>`).join('')}<polygon points="${P(c=>.15+.85*S[c]/mx,78)}" style="fill:var(--ac);fill-opacity:.28;stroke:var(--ac);stroke-width:2"/>${K.map((c,j)=>{const a=(-90+60*j)*Math.PI/180;return `<text x="${(110+98*Math.cos(a)).toFixed(1)}" y="${(115+98*Math.sin(a)).toFixed(1)}" text-anchor="middle" font-size="15">${T[c].e}</text>`}).join('')}</svg>`;
+const mix=z?'<p style="margin-top:.6em">六种倾向几乎势均力敌，你是人群里少见的“多面体”。</p>':`<p style="margin-top:.6em">你的底色是<b>${d.n}</b>，却掺着一点<b>${M[s]}</b>——这让你不是教科书里的某一种，而是只属于你的那一种。</p>`;
+const sec=(i,t,b)=>`<div class="sec"><h3>${i} ${t}</h3>${b}</div>`;
+$(`<div class="hero"><p class="ch">命运给你的判词</p><div class="orb">${d.e}</div><div class="nm">${d.n}</div><p class="q">“${d.q}”</p><div class="chips"><span>${z?'隐藏结果':'副线 · '+T[s].n}</span><span>本命浓度 ${pct}%</span></div></div>
+<div class="sec"><p>${d.j}</p>${mix}</div>
+<p class="sc">· 命 运 解 读 ·</p>
+${sec('🔔','你可能常有这些信号','<ul>'+d.sg.map(x=>`<li>${x}</li>`).join('')+'</ul>')}${sec('🔬','科学的注脚','<p>'+d.s+'</p>')}${sec('📜','历史的镜像','<p>'+d.h+'</p>')}${sec('🌑','你的暗线','<p>'+d.d+'</p>')}${sec('🌱','命运的下一步','<p>'+d.a+'</p>')}${sec('🤝','命定的搭档','<p>'+d.pk+'</p>')}
+<p class="sc">· 六 维 命 运 图 谱 ·</p><div class="card">${rad}<div class="chips">${r.map(x=>`<span style="border-color:var(--bd);color:var(--mu)">${T[x[0]].e} ${T[x[0]].n} ${Math.round(x[1]/tot*100)}%</span>`).join('')}</div><p class="mu" style="text-align:center">命运更像一份倾向配比，而不是一枚标签。</p></div>
+<button class="pri" onclick="po()">生成我的命运海报</button><div id="po"></div><button class="pri" onclick="cp()" id="cb">复制结果，邀朋友来对比</button><button onclick="start()" style="text-align:center">重新翻开命运之书</button><p class="mu">* 本测评为娱乐与自我探索之用，不构成心理诊断；引用研究为通识性概述。</p>`)}
+function wr(x,t,cx,y,w,lh){let l='';for(const c of t){if(x.measureText(l+c).width>w){x.fillText(l,cx,y);l=c;y+=lh}else l+=c}x.fillText(l,cx,y);return y}
+function po(){const c=document.createElement('canvas');c.width=750;c.height=1100;const x=c.getContext('2d'),g=x.createLinearGradient(0,0,0,1100);g.addColorStop(0,'#2a1d47');g.addColorStop(1,'#0b0814');x.fillStyle=g;x.fillRect(0,0,750,1100);
+for(let k=0;k<90;k++){x.fillStyle=`rgba(255,240,200,${Math.random()*.7})`;x.fillRect(Math.random()*750,Math.random()*1100,2,2)}
+x.textAlign='center';x.fillStyle='#e3bb72';x.font='26px serif';x.fillText('— 命运想让我成为 —',375,150);x.font='170px serif';x.fillText(d.e,375,400);
+x.font='bold 68px serif';x.fillStyle='#f5e3b8';x.fillText(d.n,375,520);x.font='30px serif';x.fillStyle='#d9cfe8';const y=wr(x,'“'+d.q+'”',375,620,560,52);
+x.fillStyle='#e3bb72';x.font='28px serif';x.fillText('本命浓度 '+pct+'%',375,y+90);x.fillStyle='#9a90ab';x.font='24px serif';x.fillText('你的命运，又是什么？',375,1000);x.fillText('命运测评 · 长按保存此图',375,1045);
+document.getElementById('po').innerHTML=`<img src="${c.toDataURL('image/png')}" alt="命运海报"><p class="mu" style="text-align:center">长按图片即可保存</p>`}
+function cp(){const t=window.txt+'\n'+location.href,b=document.getElementById('cb'),ok=()=>b.textContent='已复制 ✓ 发给最懂你的人';try{navigator.clipboard.writeText(t).then(ok,()=>prompt('复制下面的文字：',t))}catch(e){prompt('复制下面的文字：',t)}}
+start();
+</script></body></html>
